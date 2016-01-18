@@ -31,16 +31,16 @@ If I want my about page to live at `http://example.com/about-us`,
 I would create the view file: `app/views/pages/about_us.html.erb`.
 The link helper will be available as `about_us_path`.
 
-Files with the name `index.html.erb` will be served at the root path.
-Example: `app/views/features/index.html.erb` will live at `http://example.com/features`.
-The link helper will be available as `features_path`.
-
 #### Subfolders
 
 You can also create pages within subfolders, so if wanted to create a
 "Features > Overview" page that lives at `http://example.com/features/overview`,
 I would create the view file: `app/views/pages/features/overview.html.erb`.
 The link helper will be available as `features_overview_path`.
+
+Files with the name `index.html.erb` will be served at the root path for that directory.
+Example: `app/views/features/index.html.erb` will live at `http://example.com/features`.
+The link helper will be available as `features_path`.
 
 Files within subfolders will not be served by the `PagesController`. They will
 be served by a generated controller matching the name of the folder. In the case of our

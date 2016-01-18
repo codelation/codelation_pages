@@ -58,9 +58,16 @@ module ActionDispatch
         page_files.each do |file_name|
           page = File.basename(file_name, ".html.erb")
           controller_name = directory_name.blank? ? "pages" : "pages/#{directory_name}"
-          path_name = directory_name.blank? ? page : "#{directory_name}_#{page}"
-          path = page == "index" ? directory_name.dasherize : "#{directory_name}/#{page}".dasherize
-          get path, to: "#{controller_name}##{page}", as: path_name
+
+          if page == "index"
+            path = directory_name.dasherize
+            path_name = directory_name
+          else
+            path_name = directory_name.blank? ? page : "#{directory_name}_#{page}"
+            path = "#{directory_name}/#{page}".dasherize
+          end
+
+          get path, to: "#{controller_name}##{page}", as: path_name.blank? ? "root" : path_name
         end
       end
 
