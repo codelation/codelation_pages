@@ -58,7 +58,7 @@ end
 
 ## IMPORTANT
 
-**You will need to restart your Rails server after adding new page files.***
+**You will need to restart your Rails server after adding new page files.**
 
 ## Contributing
 
