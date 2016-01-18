@@ -31,6 +31,10 @@ If I want my about page to live at `http://example.com/about-us`,
 I would create the view file: `app/views/pages/about_us.html.erb`.
 The link helper will be available as `about_us_path`.
 
+Files with the name `index.html.erb` will be served at the root path.
+Example: `app/views/features/index.html.erb` will live at `http://example.com/features`.
+The link helper will be available as `features_path`.
+
 #### Subfolders
 
 You can also create pages within subfolders, so if wanted to create a
