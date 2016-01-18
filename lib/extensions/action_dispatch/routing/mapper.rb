@@ -32,7 +32,7 @@ module ActionDispatch
       # Returns whether or not a custom controller file exists.
       # @param directory_name [String]
       def custom_controller_exists(directory_name)
-        File.exist?(Rails.root.join("app", "controllers", "pages", "#{directory_name}_controller.rb"))
+        return true if File.exist?(Rails.root.join("app", "controllers", "pages", "#{directory_name}_controller.rb"))
       end
 
       # Draws the routes for static pages within sub folders.
@@ -97,12 +97,14 @@ module ActionDispatch
 
       # Returns whether or not the PagesController file exists.
       def pages_controller_exists
-        File.exist?(Rails.root.join("app", "controllers", "pages_controller.rb"))
+        return true if File.exist?(Rails.root.join("app", "controllers", "pages_controller.rb"))
+        Object.const_defined?("PagesControllers")
       end
 
       # Returns whether or not the pages module directory exists
       def pages_module_exists
-        File.exist?(Rails.root.join("app", "controllers", "pages"))
+        return true if File.exist?(Rails.root.join("app", "controllers", "pages"))
+        Object.const_defined?("Pages")
       end
     end
   end
