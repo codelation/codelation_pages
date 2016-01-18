@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.description = "Codelation Pages automatically registers static pages in `app/views/pages` with dasherized routes and automatically generated controllers for pages in subfolders."
   s.licenses    = ["MIT"]
 
-  s.files = Dir["{app,lib}/**/*", "LICENSE", "Rakefile", "README.md"]
+  s.files = Dir["{lib}/**/*", "LICENSE", "Rakefile", "README.md"]
 
   s.add_dependency "rails", "~> 4.0"
   s.add_development_dependency "rake"
