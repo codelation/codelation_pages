@@ -60,6 +60,24 @@ end
 
 **You will need to restart your Rails server after adding new page files.**
 
+## Page Titles
+
+I recommend using the [Title](https://github.com/calebthompson/title) gem for storing page titles. Using `codelation_pages`, your `en.yml` file will look something like this:
+
+```yml
+en:
+  titles:
+    application: This is the default title
+    pages:
+      about_us: About Us
+      features:
+        index: Features
+        overview: Features > Overview
+      index: Home Page
+    posts:
+      index: Codelation Blog
+```
+
 ## Contributing
 
 1. Fork it
