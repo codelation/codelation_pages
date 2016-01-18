@@ -40,7 +40,7 @@ The link helper will be available as `features_overview_path`.
 
 Files within subfolders will not be served by the `PagesController`. They will
 be served by a generated controller matching the name of the folder. In the case of our
-"Features > Overview" page, the controller would be the `FeaturesController`.
+"Features > Overview" page, the controller would be the `Pages::FeaturesController`.
 
 ### Routes
 
