@@ -33,6 +33,7 @@ module ActionDispatch
       # @param directory_name [String]
       def custom_controller_exists(directory_name)
         return true if File.exist?(Rails.root.join("app", "controllers", "pages", "#{directory_name}_controller.rb"))
+        Object.const_defined?("Pages::#{directory_name.camelize}Controller")
       end
 
       # Draws the routes for static pages within sub folders.
