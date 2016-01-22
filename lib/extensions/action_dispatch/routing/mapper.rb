@@ -23,12 +23,6 @@ module ActionDispatch
 
     private
 
-      # Returns an application controller for serving static files.
-      def controller
-        Class.new(ApplicationController) do
-        end
-      end
-
       # Returns whether or not a custom controller file exists.
       # @param directory_name [String]
       def custom_controller_exists(directory_name)
@@ -88,12 +82,18 @@ module ActionDispatch
       def generate_custom_controller(directory_name)
         Object.const_set("Pages", Module.new) unless pages_module_exists
         controller_class_name = "#{directory_name.camelize}Controller"
-        Pages.const_set(controller_class_name, controller) unless custom_controller_exists(directory_name)
+        Pages.const_set(controller_class_name, pages_controller) unless custom_controller_exists(directory_name)
       end
 
       # Generates the `PagesController` if it doesn't already exist
       def generate_pages_controller
-        Object.const_set("PagesController", controller) unless pages_controller_exists
+        Object.const_set("PagesController", pages_controller) unless pages_controller_exists
+      end
+
+      # Returns an application controller for serving static files.
+      def pages_controller
+        Class.new(ApplicationController) do
+        end
       end
 
       # Returns whether or not the PagesController file exists.
